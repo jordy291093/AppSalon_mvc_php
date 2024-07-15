@@ -1,0 +1,23 @@
+{
+    "name": "jordy/app-salon",
+    "description": "Aplicacion para Barberia",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jordy",
+            "email": "112351586+jordy291093@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models",
+            "Classes\\" : "./classes"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.5",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

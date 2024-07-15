@@ -1,0 +1,19 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.botones {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    @include m.tablet {
+        flex-direction: row;
+        gap: 3rem;
+    }
+}
+.btn-azul {
+    @include m.boton(v.$azul, v.$blanco);
+}
+.btn-rojo {
+    @include m.boton(v.$rojo, v.$blanco);
+}
