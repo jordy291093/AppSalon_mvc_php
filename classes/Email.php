@@ -26,8 +26,8 @@ class Email {
         $mail->Username = $_ENV['EMAIL_USER'];
         $mail->Password = $_ENV['EMAIL_PASS'];
 
-        $mail->setFrom('cuentas@appsalon.com');
-        $mail->addAddress('cuentas@appsalon.com', 'Appsalon.com');
+        $mail->setFrom('cuentas@appsalon.com', 'AppSalon');
+        $mail->addAddress($_POST['email'], $_POST['nombre']);
         $mail->Subject = ('Confirmar tu cuenta');
 
         //Set HTML
@@ -47,6 +47,9 @@ class Email {
     }
 
     public function enviarInstrucciones() {
+        $resultado = $_POST['enviarInstrucciones'];
+        debuguear($_POST);
+
         $mail = new PHPMailer();
         $mail->isSMTP();
         $mail->Host = $_ENV['EMAIL_HOST'];
@@ -55,8 +58,8 @@ class Email {
         $mail->Username = $_ENV['EMAIL_USER'];
         $mail->Password = $_ENV['EMAIL_PASS'];
 
-        $mail->setFrom('cuentas@appsalon.com');
-        $mail->addAddress('cuentas@appsalon.com', 'Appsalon.com');
+        $mail->setFrom('cuentas@appsalon.com', 'AppSalon');
+        $mail->addAddress($_POST['email'], $_POST['nombre']);
         $mail->Subject = ('Reestablecer Password');
 
         //Set HTML
