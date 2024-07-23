@@ -149,7 +149,8 @@ class LoginController {
                     $usuario->crearToken();
 
                     // Enviar email para confirmar
-                    $email = new Email($usuario->nombre, $usuario->email, $usuario->token);$email->enviarConfirmacion();
+                    $email = new Email($usuario->nombre, $usuario->email, $usuario->token);
+                    $email->enviarConfirmacion();
 
                     // Crear el usuario
                     $resultado = $usuario->guardar();

@@ -5,9 +5,9 @@ namespace Classes;
 use PHPMailer\PHPMailer\PHPMailer;
 
 class Email {
-    public $email;
-    public $nombre;
-    public $token;
+    protected $email;
+    protected $nombre;
+    protected $token;
 
     public function __construct($email, $nombre, $token)
     {
@@ -25,9 +25,10 @@ class Email {
         $mail->Port = $_ENV['EMAIL_PORT'];
         $mail->Username = $_ENV['EMAIL_USER'];
         $mail->Password = $_ENV['EMAIL_PASS'];
+        $mail->SMTPSecure = 'ssl';
 
         $mail->setFrom('cuentas@appsalon.com', 'AppSalon');
-        $mail->addAddress($_POST['email'], $_POST['nombre']);
+        $mail->addAddress($this->email, $this->nombre);
         $mail->Subject = ('Confirmar tu cuenta');
 
         //Set HTML
@@ -59,7 +60,7 @@ class Email {
         $mail->Password = $_ENV['EMAIL_PASS'];
 
         $mail->setFrom('cuentas@appsalon.com', 'AppSalon');
-        $mail->addAddress($_POST['email'], $_POST['nombre']);
+        $mail->addAddress($this->email, $this->nombre);
         $mail->Subject = ('Reestablecer Password');
 
         //Set HTML
